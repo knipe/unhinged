@@ -1,0 +1,434 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 TRANSITIONAL//EN">
+
+
+
+<html>
+	<head>
+		<!--
+                -->
+
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<meta name="color:Highlight" content="#ff0" />
+                <meta name="image:Header" content="0" />
+                <meta name="if:Larger Type" content="0"/>
+                <meta name="if:Sidebar fixes at top" content="1"/>
+                <meta name="if:Endless Scrolling" content="1"/>
+                <meta name="if:Show Date" content="0"/>
+                <meta name="if:Show Tags" content="0"/>
+                <meta name="if:Show Portrait" content="0"/>
+
+		<title>{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}</title>
+		<meta name="description" content="{MetaDescription}"/>
+		<link rel="shortcut icon" href="{Favicon}"/>
+  		<link rel="alternate" type="application/rss+xml" name="RSS" href="{RSS}"/>
+
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+		{block:IfSidebarfixesattop}
+		<script type="text/javascript" src="http://static.tumblr.com/ahomusb/aIHl5l1tn/fixedsidebar.js"></script>
+		{/block:IfSidebarfixesattop}
+
+                <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+
+	<style class="text/css">
+
+	body {
+		background-color: #fff;
+		margin: 0px;
+		padding: 0px;
+		width: 100%;
+		text-align: center;
+	}
+
+	html {
+		{block:IfNotLargerType}
+                font: 12px Inconsolata, Monaco, monospace;
+                {/block:IfNotLargerType}
+                {block:IfLargerType}
+		font: 14px Inconsolata, Monaco, monospace;
+                {/block:IfLargerType}
+		color: #000000;	
+	}
+
+@font-face {
+  font-family: 'Inconsolata';
+  src: local('Inconsolata'), url('http://themes.googleusercontent.com/fonts/font?kit=J_eeEGgHN8Gk3Eud0dz8jw') format('truetype');
+}
+	
+	a {
+		color: #000;
+		text-decoration: underline;
+	}
+	
+	a:hover {
+		color: #000;
+		background-color: {color:Highlight};
+		text-decoration: none;
+	}
+	
+	#body_container {
+		margin-left: auto;
+		margin-right: auto;
+		width: 700px;
+		border: 0px solid #000;
+		text-align: left;
+	}
+
+	
+	#header {
+		margin-top: 140px;
+		width: 700px;
+		max-width: 700px;
+		padding-bottom: 50px;
+	}
+	
+	h1 {
+		font-size: 46px;
+		letter-spacing: 1px;
+		text-transform: uppercase;
+		color: #000;
+		width: 700px;
+	}
+	
+	#header a {
+		text-decoration: none;
+		font-size: 46px;
+		color: #000;
+	}
+	
+	#sidebar {
+		float: right;
+		margin-top: 40px;
+		width: 160px;
+		color: #444;
+	}
+
+		{block:IfSidebarfixesattop}
+        .fixed {
+        	position: fixed;
+        	top: 0px;
+        	margin-left: 540px;
+        }
+		{/block:IfSidebarfixesattop}
+	
+	#sidebar ul {
+		margin: 10px 0px 0px 0px; 
+		padding: 0px;
+		list-style: none;
+		text-transform: uppercase;
+	}
+	
+	#sidebar li {
+		padding-top: 5px;
+		margin: 0px;
+	}
+	
+	#sidebar li a {
+		color: #000;
+		text-decoration: none;
+	}
+	
+	#sidebar a:hover {
+		text-decoration: none;
+	}
+
+	#desc {
+                color: #000;
+	}
+	
+	#desc a {
+		color: #000;
+		text-decoration: underline;
+	}
+	
+	#desc a:hover {
+		color: #000;
+		background-color: {color:Highlight};
+		text-decoration: none;
+	}
+	
+	#search {
+		margin-top: 0px;
+	}
+
+        form#search input {
+		{block:IfNotLargerType}
+                font: 12px Inconsolata, Monaco, monospace;
+                width: 40px;
+                {/block:IfNotLargerType}
+                {block:IfLargerType}
+		font: 14px Inconsolata, Monaco, monospace;
+                width: 54px;
+                {/block:IfLargerType}
+                margin-top: -1px;
+                margin-left: -1px;
+                background: #fff;
+                border: 0;
+
+        }
+
+	form#search input:hover {
+                background: {color:Highlight};
+        }
+
+	form#search input:focus {
+                background: {color:Highlight};
+                width: 120px;
+        }
+	
+
+	#footer{
+                color: #ccc;
+	}
+	
+	#footer a {
+		color: #ccc;
+		text-decoration: underline;
+	}
+	
+	#footer a:hover {
+		color: #000;
+		background-color: {color:Highlight};
+		text-decoration: none;
+
+        }
+	
+	#post_container {
+		margin: 0px;
+		float: left;
+		width: 520px;
+		padding-bottom: 30px;
+	}
+	
+	
+	#post {
+		width: 500px;
+		margin-top: 40px;
+		color: #000;
+		border-bottom: 1px dashed #ccc;
+	}
+	
+	#notes, #notes a {
+		margin: 0px;
+		color: #ccc;
+	}
+
+	#notes a:hover {
+		margin: 0px;
+		color: #000;
+		text-decoration: none;
+	}
+	
+	h3 {
+		font-weight: normal;
+		font-size: 16px;
+	}
+	
+	#chat ul {
+		list-style: none;
+		padding: 0px;
+		margin: 0px;
+		width: 500px;
+		text-align: left;
+	}
+	
+	#chat li {
+		padding: 2px;
+		background-color: #eee;
+		margin-top: 2px;
+	}
+	
+	#notes_page {
+		margin-top: 30px;
+		color: #000;
+	}
+	
+	#notes_page a {
+		color: #000;
+	}
+	
+	#notes_page a:hover {
+		color: {color:Highlight};
+	}
+	
+	#notes_page ol {
+		list-style: none;
+		padding: 0px;
+		margin: 0px;
+		width: 500px;
+	}
+	
+	#notes_page li {
+		padding: 2px;
+		background-color: #fff;
+		margin-top: 2px;
+	}
+	
+	#nav {
+		width: 500px;
+		margin-top: 50px;
+		height: 30px;
+		line-height: 30px;
+		
+	}
+	
+	#nav a {
+		text-decoration: none;
+		color: #000;
+	}
+	
+	#nav a:hover {
+		color: #000;
+	}
+	
+	#prev {
+		float:left;
+	}
+	
+	#next {
+		float:right;
+	}
+
+{CustomCSS}
+	</style>
+
+{block:IfEndlessScrolling}<script type="text/javascript" 
+src="http://static.tumblr.com/q0etgkr/mFbkoqlkr/tumblrautopager.js "></script>{/block:IfEndlessScrolling}
+
+	</head>
+	<body>
+	<div id="body_container">
+		<div id="header">
+        {block:IfHeaderImage}<a href="/"><img src="{image:Header}"/></a>{/block:IfHeaderImage}
+        {block:IfNotHeaderImage}<a href="/">{Title}</a>{/block:IfNotHeaderImage}
+    <script>
+        $("h1").contents().stretch();
+     </script>	
+		</div>
+
+		<div id="sidebar">
+                {block:IfShowPortrait}<img src="{PortraitURL-128}" /><p>{/block:IfShowPortrait}
+                <span class="desc">{Description}</span>
+
+			<ul>
+				
+{block:HasPages}{block:Pages}<li><a href="{URL}">{Label}</a></li>{/block:Pages}{/block:HasPages}
+				<li>{block:SubmissionsEnabled}<a href="/submit">Submit</a>{/block:SubmissionsEnabled}</li>
+				<li>{block:AskEnabled}<a href="/ask">Ask</a>{/block:AskEnabled}</li>
+				<li><a href="/archive">Archive</a></li>
+				<li><a href="{RSS}">RSS</a></li>
+				<li>
+		<form action="/search" method="get" id="search">
+    		<input type="text" name="q" value="SEARCH" onfocus="value='{searchQuery}'" onblur="value='SEARCH'"/>
+
+                <input type="hidden" value="Search" />
+		</form></li>
+
+			</ul>
+                <p>
+
+		</div>
+		
+		<div id="post_container">
+<div class= "autopagerize_page_element">
+			{block:Posts}
+			<div id="post">
+				{block:Text}                                                
+					{block:Title}<h3>{Title}</h3>{/block:Title}
+					{Body}				
+				{/block:Text}
+				
+				{block:Photo}
+					{LinkOpenTag}<img src="{PhotoURL-500}" border="0" alt="{PhotoAlt}">{LinkCloseTag}
+					<p>
+					{block:Caption}{Caption}{/block:Caption}					
+				{/block:Photo}
+				
+				{block:Photoset}
+					{Photoset-500}
+					<p>
+
+					{block:Caption}{Caption}{/block:Caption}					
+				{/block:Photoset}
+				
+				{block:Quote}
+					<h3 style="font-style:italic">"{Quote}"</h3>
+					<p>
+					{block:Source}{Source}{/block:Source}					
+				{/block:Quote}
+				
+				{block:Link}
+					<h3><a href="{URL}" {Target}>{Name}</a></h3>
+					<p>
+					{block:Description}{Description}{/block:Description}					
+				{/block:Link}
+			
+				{block:Chat}
+					{block:Title}<h3>{Title}</h3>{/block:Title}
+					<div id="chat">
+
+					<ul>
+						{block:Lines}
+							<li>
+								{block:Label}{Label}{/block:Label}
+								{Line}
+							</li>
+						{/block:Lines}
+					</ul>
+					</div>
+					<p>					
+				{/block:Chat}
+				
+				{block:Audio}
+					{block:AlbumArt}<img src="{AlbumArtURL}" style="width:50px;height:50px;float:left;padding-right:10px;padding-bottom:10px;">{/block:AlbumArt}{AudioPlayerGrey}
+					<p>
+
+					{Caption}					
+				{/block:Audio}
+				
+				{block:Video}
+					{Video-500}
+					<p>
+					{Caption}					
+				{/block:Video}
+				
+				{block:Answer}
+					<h3>{Asker} asked: {Question}</h3>
+						{Answer}					
+				{/block:Answer}
+				
+<div id="notes">
+					<p>
+					{block:Date}{block:IfShowDate}<a href={Permalink}>{DayOfMonth} {ShortMonth} {Year}</a> / {/block:IfShowDate}{block:RebloggedFrom}Reblogged from <a href="{ReblogParentURL}">{ReblogParentName}</a> with{/block:RebloggedFrom} {block:IfNotShowDate}<a href={Permalink}>{/block:IfNotShowDate}{NoteCountWithLabel}{block:IfNotShowDate}</a>{/block:IfNotShowDate}{block:IfShowTags}
+              {block:HasTags} / {block:Tags}<a href={TagUrl}>{Tag}</a>&nbsp;{/block:Tags}{/block:HasTags}{/block:IfShowTags}{/block:Date}</div>
+
+			</div>
+
+			{/block:Posts}
+</div>
+			{block:PermalinkPage}
+			<div id="notes_page">
+          	{block:PostNotes}
+            {PostNotes}
+         	 {/block:PostNotes}
+			</div>
+       		 {/block:PermalinkPage}
+
+<div id="nav">
+	<h3>
+		<span id="prev">{block:PreviousPage}
+                <a href="{PreviousPage}">&larr; NEWER</a>
+            {/block:PreviousPage}
+		</span>
+	</h3>
+	<h3>
+		<span id="next">
+            {block:NextPage}
+                <a href="{NextPage}">OLDER &rarr;</a>
+            {/block:NextPage}
+		</span>
+	</h3>
+		</div>
+		</div>
+	</div>
+	</body>
+</html>
